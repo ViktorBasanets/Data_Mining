@@ -18,6 +18,16 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="declaration.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="client.cpp" />
+    <ClCompile Include="implementation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{DE7E00F2-9C6C-4650-B3B2-650FA63B87C0}</ProjectGuid>
     <RootNamespace>Data_Mining</RootNamespace>
@@ -68,7 +78,14 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\boost_1_64_0;C:\GnuWin32\include;C:\OpenSSL\Build_VC_32_release\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\boost_1_64_0\VC\Win32\lib;C:\GnuWin32\lib;C:\OpenSSL\Build_VC_32_release\lib;C:\OpenSSL\Build_VC_32_release\lib\engines;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\boost_1_64_0;C:\GnuWin32\include;C:\OpenSSL\Build_VC_32_release\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\boost_1_64_0\VC\Win32\lib;C:\GnuWin32\lib;C:\OpenSSL\Build_VC_32_release\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -109,8 +126,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
